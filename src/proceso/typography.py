@@ -136,4 +136,7 @@ class Typography(BaseSketch):
 
         WEBGL: Only fonts loaded via load_font() are supported.
         """
-        self._p5js.textFont(font, size)
+        if type(font) == str:
+            self._p5js.textFont(f'"{font}"', size)
+        else:
+            self._p5js.textFont(font, size)
